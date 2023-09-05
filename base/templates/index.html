@@ -1,0 +1,89 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+    <p style="margin-left: 5px;">{{ request.user }}</p>
+    <a href="{% url 'logout' %}"  style="margin-left: 5px;">Logout</a>
+{% else %}
+    <a href="{% url 'login' %}" style="margin-left: 5px;">Login</a>
+{% endif %} 
+
+<hr>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Climapp</title>
+</head>
+<body>
+
+    <h1>Climapp</h1>
+
+    <form action="{% url 'get_weather' %}" method="get">
+        <label for="City">City name: </label>
+        <input type="text" name="city" placeholder="Enter City name">
+        
+        <label for="unidade">unit: </label>
+        <select  style="border: 1px solid #757575;
+        background-color: #FFF;
+        color: #4b5156;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 5px;"    name="unit">
+            <option value="metric">Celsius</option>
+            <option value="imperial">Fahrenheit</option>
+            <option value="standard">Kelvin</option>
+        </select>
+        
+        <label for="timezone">Timezone: </label>
+        <select  style="border: 1px solid #757575;
+        background-color: #FFF;
+        color: #4b5156;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 5px;"  name="timezone">
+            <option value="America/Sao_Paulo">São Paulo</option>
+            <option value="America/New_York">New York</option>
+            <option value="Europe/Paris">Paris</option>
+            <option value="Asia/Tokyo">Tóquio</option>
+        </select>
+        
+        <button  style="border: 1px solid #757575;
+        background-color: #FFF;
+        color: #4b5156;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 5px;"   type="submit">Search weather</button>
+    </form>
+    
+    <form>
+
+        <div style="border: 1px solid #757575;
+        background-color: #FFF;
+        color: #4b5156;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 5px;"  id="resultado">
+              {% if temperature %}
+              <p>Tempereture in {{ city }} {{ unit }}: {{ temperature }}°</p>
+              <p>Local hour: {{ timestamp }}</p>
+          {% endif %}
+          {% if error %}
+              <p>{{ error }}</p>
+          {% endif %}
+        </div>
+
+    </form>
+
+
+</html>
+
+{% endblock content %}
