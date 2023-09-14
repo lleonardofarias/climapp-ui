@@ -52,12 +52,12 @@
         }
 
         .header-bar {
-            padding-top: 30px;
+            padding-top: 20px;
             margin-top: 0;
             background-color: #1e1e1e;
             -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
             box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);  
-            margin-bottom: 50px;      
+            margin-bottom: 60px;      
         }
     
 
@@ -75,12 +75,16 @@
 
         input[type=text],
         input[type=password],
-        textarea {
+        .textarea {
             border: 1px solid #f3652b;
             border-radius: 5px;
             padding: 10px;
             width: 90%;
             margin-left: 5px;
+        }
+
+        .textarea:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
 
@@ -104,18 +108,15 @@
 
         }
 
-        .logout_bottom {
-            
-        }
-
-        .username {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-bottom: 0;
-            margin-left: 5px;
-            color: #f3652b; 
-            padding-top: 0px;
-        }
+        .titulo_climapp {
+           margin-top: 5px;
+           margin-bottom: 0px;
+           color: #f3652b;
+           font-size: 24px; 
+           font-weight: bold; 
+           text-transform: uppercase; 
+           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
 
     </style>
 </head>
@@ -125,10 +126,10 @@
     <div class="header-bar">
 
         {% if request.user.is_authenticated %}
-    <p class="username">{{ request.user }}</p>
-    <a  class="logout_bottom"  href="{% url 'logout' %}"  style="margin-left: 5px;">Logout</a>
+    <p style="margin-left: 5px; color: #f3652b; padding-top: 0px;">{{ request.user }}</p>
+    <a href="{% url 'logout' %}"  style="margin-left: 5px;">Logout</a>
 {% else %}
-    <a href="{% url 'login' %}" style="margin-left: 5px;">Login</a>
+    <p class="titulo_climapp">Climapp</p>
 {% endif %} 
       
     </div>

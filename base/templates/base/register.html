@@ -1,16 +1,19 @@
-{% extends 'base/main.html' %}
+{% extends 'base/main_login.html' %}
 {% block content %}
 
 
-<h1>Register</h1>
+<h1 style="margin-left: 3px; color: #f3652b;">Register</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Register" style="background-color: #fff;">
+<form style="margin-left: 3px;"  method="POST">
+    <div style="margin-left: 5px;">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register" style="background-color: #fff;">
+    </div>
+
 </form>
 
-<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+<p style="margin-left: 3px;">Already have an account? <a   href="{% url 'login' %}">Login</a></p>
 
 {% endblock content %}
 

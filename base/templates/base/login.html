@@ -1,4 +1,4 @@
-{% extends 'base/main.html' %}
+{% extends 'base/main_login.html' %}
 {% block content %}
 
 <h1>Login</h1>
@@ -6,10 +6,10 @@
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Login" style="background-color: #fff;">
+    <input type="submit" value="Login" style="background-color: #fff; color:#f3652b; margin-left: 6px;">
 </form>
 
-<p>Dont have an account? <a href="{% url 'register' %}">Register</a></p>
+<p style="margin-left: 6px;"  >Dont have an account? <a href="{% url 'register' %}">Register</a></p>
 {% endblock content %}
 
 
