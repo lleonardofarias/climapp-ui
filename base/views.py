@@ -44,7 +44,7 @@ def get_weather(request):
         timezone = request.GET.get('timezone', 'America/Sao_Paulo')
 
         api_url = f"Your server docker link""/api/weather/?city={city}"
-
+        
         response = requests.get(api_url, params={'unit': unit, 'timezone': timezone})
 
         temperature = None
