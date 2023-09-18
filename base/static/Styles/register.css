@@ -1,0 +1,22 @@
+.submit_register {
+    background-color: #fff;
+    color: #f3652b;
+    margin-left: 6px;
+}
+
+.submit_register:hover {
+    cursor: pointer;
+    color: #d65f2e
+}
+
+.register_title {
+    margin-left: 8px;
+}
+
+.have_account {
+    margin-left: 3px;
+}
+
+.helptext {
+    margin-left: 7px;
+}

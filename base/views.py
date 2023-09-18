@@ -43,23 +43,27 @@ def get_weather(request):
         unit = request.GET.get('unit')
         timezone = request.GET.get('timezone', 'America/Sao_Paulo')
 
-        api_url = f"Your server docker link""/api/weather/?city={city}"
-        
+        api_url = f"Your server docker link/api/weather/?city={city}"
+
         response = requests.get(api_url, params={'unit': unit, 'timezone': timezone})
 
         temperature = None
         timestamp = ''
         error = None
+        current_weather = None 
+        icon_url = None
 
         if response.status_code == 200:
             data = response.json()
             if 'temperature' in data:
                 temperature = data['temperature']
                 timestamp = data.get('timestamp', '')
+                current_weather = data.get('current_weather', '') 
+                icon_url= data.get('icon_url','') 
             else:
-                error = "Data not avalible."
+                error = "Data not available."
         else:
-            error = f"Fail solicitation. Code status: {response.status_code}"
+            error = f"Failed to fetch data. Status code: {response.status_code}"
 
         context = {
             'city': city,
@@ -67,6 +71,9 @@ def get_weather(request):
             'temperature': temperature,
             'timestamp': timestamp,
             'error': error,
+            'current_weather': current_weather,
+            'icon_url': icon_url 
         }
 
         return render(request, 'index.html', context)
+        

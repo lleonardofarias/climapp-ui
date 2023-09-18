@@ -1,5 +1,6 @@
 {% extends 'base/main.html' %}
 {% block content %}
+{% load static %}
 
 <hr>
 
@@ -8,131 +9,7 @@
 <head>
     <title>Climapp</title>
 
-    <style>
-
-        .remove_margin {
-            margin-bottom: 0px;
-        }
-
-        .unidade_buttom {
-            transition: background-color 0.3s ease-in-out;
-            background-color: #f3652b;
-            border-radius: 4px;
-            border: 0 none;
-            color: white;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 100px;
-            height: 35px;
-            line-height: 10px;
-            margin-left: 5px;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    
-        .unidade_buttom:hover {
-            background-color: #d65f2e;
-        }
-
-        .timezone_bottom {
-
-            background-color: #f3652b;
-            border-radius: 4px;
-            border: 0 none;
-            color: white;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 100px;
-            height: 35px;
-            line-height: 10px;
-            margin-left: 5px;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2px;
-
-        }
-
-        .timezone_bottom:hover {
-            background-color: #d65f2e;
-        }
-
-        .submit_buttom {
-            background-color: #f3652b;
-            border-radius: 4px;
-            border: 0 none;
-            color: white;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 100px;
-            height: 35px;
-            line-height: 10px;
-            margin-left: 5px;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2px;
-        }
-
-        .submit_buttom:hover {
-            background-color: #d65f2e;
-        }
-
-        .resultado_style {
-        margin-top: 10px;
-        border: 1px solid #f3652b;
-        background-color: #1e1e1e;
-        color: #4b5156;
-        font-size: 14px;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        margin-left: 2px;
-        margin-right: 2px;
-        }
-
-        .temperatura_style {
-            background-color: #f3652b;
-            border-radius: 4px;
-            border: 0 none;
-            color: white;
-            display: inline-block;
-            height: 35px;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-left: 2px;
-            padding-left: 5px;
-            padding-right: 5px;
-            padding-bottom: -10px;
-            padding-top: 2px;
-        }
-
-        .local_hour_style {
-            background-color: #f3652b;
-            border-radius: 4px;
-            border: 0 none;
-            color: white;
-            display: inline-block;
-            height: 35px;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-left: 2px;
-            padding-left: 5px;
-            padding-right: 5px;
-            padding-bottom: -10px;
-            padding-top: 2px;
-        }
-
-        .search_bar {
-            color:#f3652b ;
-        }
-
-        .search_bar:hover {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
-    
-
-
+     <link rel="stylesheet" href="{% static 'Styles/index.css' %}">
 </head>
 <body>
     <form class="remove_margin"></form>
@@ -163,19 +40,56 @@
     
     <form>
 
-        <div class="resultado_style"  id="resultado">
-              {% if temperature %}
-              <p class="temperatura_style">Tempereture in {{ city }} {{ unit }}: {{ temperature }}°</p>
-              <p class="local_hour_style">Local hour: {{ timestamp }}</p>
-          {% endif %}
-          {% if error %}
-              <p>{{ error }}</p>
-          {% endif %}
+        
+        <div class="resultado_style" id="resultado">
+
+            <div class="Weather_in">
+                <p> Weather In {{ city }}</p>
+            </div>
+
+            <div class="icon">
+
+                {% if icon_url %}
+                    <img src="{{ icon_url }}" alt="Weather Icon">
+                {% endif %}    
+
+            </div>
+
+            <div class="content">
+
+                <div class="resultado_current_weather_style" id="current_weatherid">
+                    {% if current_weather %}
+    
+                        <p class="current_weather_caixa"> {{ current_weather }}</p>
+    
+                    {% endif %}
+                    {% if errror %}
+                        <p>{{ error }}</p>
+                    {% endif %}    
+    
+                </div>
+    
+                {% if temperature %}
+                    <p class="temperatura_style">Temperature: {{ temperature }}°</p>
+    
+                    <p class="local_hour_style">Local hour: {{ timestamp }}</p>
+    
+                {% endif %}
+                {% if error %}
+                    <p>{{ error }}</p>
+                {% endif %}
+
+
+
+
+            </div>
+
+
         </div>
+        
 
     </form>
 
-
-</html>
-
+<body>
+    
 {% endblock content %}

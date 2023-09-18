@@ -1,0 +1,131 @@
+.remove_margin {
+    margin-bottom: 0px;
+}
+
+.unidade_buttom {
+    transition: background-color 0.3s ease-in-out;
+    background-color: #f3652b;
+    border-radius: 4px;
+    border: 0 none;
+    color: white;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 100px;
+    height: 35px;
+    line-height: 10px;
+    margin-left: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.unidade_buttom:hover {
+    background-color: #d65f2e;
+}
+
+.timezone_bottom {
+
+    background-color: #f3652b;
+    border-radius: 4px;
+    border: 0 none;
+    color: white;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 100px;
+    height: 35px;
+    line-height: 10px;
+    margin-left: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2px;
+
+}
+
+.timezone_bottom:hover {
+    background-color: #d65f2e;
+}
+
+.submit_buttom {
+    background-color: #f3652b;
+    border-radius: 4px;
+    border: 0 none;
+    color: white;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 100px;
+    height: 35px;
+    line-height: 10px;
+    margin-left: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2px;
+}
+
+.submit_buttom:hover {
+    background-color: #d65f2e;
+}
+
+.resultado_style {
+margin-top: 10px;
+border: 1px solid #f3652b;
+background-color: #1e1e1e;
+color: #4b5156;
+font-size: 14px;
+border-radius: 5px;
+cursor: pointer;
+text-decoration: none;
+margin-left: 2px;
+margin-right: 2px;
+}
+
+
+.search_bar {
+    color:#f3652b ;
+}
+
+.search_bar:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Weather_in {
+    color:#f3652b;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.resultado_style {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.icon {
+    flex: 1; 
+    padding-right: 10px; 
+}
+
+.weather-icon {
+    max-width: 50px; 
+    height: auto;
+}
+
+.content {
+    flex: 3; 
+}
+
+.resultado_current_weather_style,
+.temperatura_style,
+.local_hour_style {
+    background-color: #f3652b;
+    border-radius: 4px;
+    border: 0 none;
+    color: white;
+    height: 35px;
+    text-decoration: none;
+    margin-left: 2px;
+    padding: 0 5px; 
+    vertical-align: middle; 
+}
+
+.resultado_current_weather_style {
+    padding-top: 0px; 
+}
+

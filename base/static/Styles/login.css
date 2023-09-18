@@ -1,0 +1,22 @@
+.login_title {
+    margin-left: 6px;
+}
+
+.submit_buttom {
+    background-color: #fff; 
+    color:#f3652b; 
+    margin-left: 6px;
+}
+
+.submit_buttom:hover {
+    cursor: pointer;
+    color: #d65f2e
+}
+
+input[type=text]:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input[type=password]:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

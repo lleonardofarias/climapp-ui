@@ -1,15 +1,34 @@
 {% extends 'base/main_login.html' %}
 {% block content %}
+{% load static %}
 
-<h1>Login</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Login" style="background-color: #fff; color:#f3652b; margin-left: 6px;">
-</form>
+<html>
 
-<p style="margin-left: 6px;"  >Dont have an account? <a href="{% url 'register' %}">Register</a></p>
-{% endblock content %}
+    <head>
+        <title>Login</title>
 
+        <link rel="stylesheet" href="{% static 'Styles/login.css' %}">
+
+    
+    </head>
+    
+
+    <body>
+
+        <h1 class="login_title">Login</h1>
+    
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="submit_buttom" type="submit" value="Login">
+        </form>
+        
+        <p style="margin-left: 6px;"  >Dont have an account? <a href="{% url 'register' %}">Register</a></p>
+        {% endblock content %}
+        
+
+    </body>
+
+</html>
 
